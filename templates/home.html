@@ -1,0 +1,36 @@
+{% include 'shared/header.html' %}
+
+{% extends 'shared/base.html' %}
+
+{% block conteudo %}
+
+
+<div class="container mt-5">
+    <table class="table table_id">
+        <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Nome </th>
+                    <th> Cidade </th>
+                    <th> Data </th>
+                </tr>
+        </thead>
+        <tbody>
+            {% for ator in atores  %}
+            <tr>
+           
+                <td>  <a href="{{ url_for('buscar', id=ator['id']) }}">{{ ator['id']}}  </a></td>
+                <td {% if ator['name'] == 'NICK' %} style="color:red" {% endif %}> {{ ator['name'] }}</td>
+                <td> {{ ator['cidade'] }}</td>
+                <td> {{ ator['data'] }}</td>
+           
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock conteudo %}
+
+
+

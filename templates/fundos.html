@@ -1,0 +1,65 @@
+{% include 'shared/header.html' %}
+
+{% extends 'shared/base.html' %}
+
+{% block conteudo %}
+
+<div class="container mt-5" >
+    <form action="{{ url_for('busca_fundo') }}" method="POST">
+            <div class="row">
+                
+                <div class="col"> 
+                    <label for="cod_sac" class="form-label">
+                        COD SAC
+                    </label>
+                    <input type="text" class="form-control" name="cod_sac">
+                </div>
+
+                <div class="col"> 
+                    <label for="cod_sac" class="form-label">
+                        NOME FUNDO
+                    </label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="col"> 
+                    <label for="cod_sac" class="form-label">
+                        DATA INÍCIO
+                    </label>
+                    <input type="DATE" class="form-control">
+                </div>
+
+                <div class="col"> 
+                    <label for="cod_sac" class="form-label">
+                        MESA GESTORA
+                    </label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="col"> 
+                    <label for="cod_sac" class="form-label">
+                        CONSULTAR
+                    </label>
+                    <input type="submit" class="form-control bg-primary">
+                </div>
+            
+            </div>
+    </form>
+
+    <div class="container">
+
+        <div class="d-flex">
+        {% for lista in lista_mesas%}
+        
+            <div class="col-4">
+                {{ lista }}
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock conteudo %}
+
+

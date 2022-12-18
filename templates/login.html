@@ -1,0 +1,38 @@
+{% extends 'shared/base.html' %} {% block conteudo %}
+
+{% with messages = get_flashed_messages() %}
+            <ul id="messages" class="list-unstyled avisoInsucesso">
+            {% for message in messages %}
+                <li class="alert alert-danger">{{ message }}</li>
+            {% endfor %}
+            </ul>
+{% endwith %}
+
+<div class="container-fluid mt-5">
+  <div class="w-100 d-flex justify-content-center">
+    <form action="{{ url_for('login') }}" method="post">
+      <div class="mb-3">
+        <label for="usuario" class="form-label"> Usuário </label>
+        <input type="text" class="form-control" id="usuario" name="usuario" />
+        <div id="emailHelp" class="form-text">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          name="senha"
+        />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% endblock conteudo %}
